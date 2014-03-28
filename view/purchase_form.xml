@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id='info']/separator[@name='comment']"
+            position="before">
+        <label name="from_openerp"/>
+        <field name="from_openerp"/>
+    </xpath>
+</data>

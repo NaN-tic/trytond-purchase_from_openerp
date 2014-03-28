@@ -1,0 +1,15 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:purchase.purchase,from_openerp:"
+msgid "Imported from OpenERP"
+msgstr "Importado de OpenERP"
+
+msgctxt "field:stock.move,from_openerp:"
+msgid "Imported from OpenERP"
+msgstr "Importado de OpenERP"
+
+msgctxt "field:stock.move,from_openerp_to_invoice:"
+msgid "Imported from OpenERP"
+msgstr "Importado de OpenERP"
