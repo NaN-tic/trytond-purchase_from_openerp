@@ -22,7 +22,7 @@ class StockMove:
             if self.from_openerp_to_invoice:
                 return 0.0
             return self.quantity
-        return super(StockMove, self).invoiced_quantity()
+        return super(StockMove, self).invoiced_quantity
 
 
 class Purchase:
@@ -49,9 +49,26 @@ class Purchase:
                 return 'paid'
         return state
 
+    @classmethod
+    def copy(cls, purchases, default=None):
+        if default is None:
+            default = {}
+        else:
+            default = default.copy()
+        default['from_openerp'] = False
+        return super(Purchase, cls).copy(purchases, default=default)
+
 
 class PurchaseLine:
     __name__ = 'purchase.line'
+
+    def get_move(self):
+        move = super(PurchaseLine, self).get_move()
+        if move and self.purchase.from_openerp:
+            move.from_openerp = True
+            if self.purchase.invoice_method == 'shipment':
+                move.from_openerp_to_invoice = True
+        return move
 
     def get_invoice_line(self, invoice_type):
         pool = Pool()
